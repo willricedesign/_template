@@ -1,1 +1,1 @@
-body{background-color:blue;color:#fff;font-size:40x}.testing{width:71.42857%}
+body{max-width:600px;margin-left:auto;margin-right:auto;background-color:blue;color:#fff;font-size:40x}body:after{content:" ";display:block;clear:both}img,p{width:100%;float:left;margin-left:0;margin-right:0}
