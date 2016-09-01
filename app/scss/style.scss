@@ -1,0 +1,23 @@
+@import "bower_components/susy/sass/susy";
+
+//Layout Variables
+$susy: (
+  columns: 12,  // The number of columns in your grid
+  gutters: 1/2, // The size of a gutter in relation to a single column
+  container: 600px,
+);
+
+//This is a test
+
+body {
+	@include container;
+
+	background-color: blue;
+	color: white;
+	font-size: 40x;
+}
+
+p, img {
+	@include span(12 of 12);
+	
+}

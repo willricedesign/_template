@@ -1,0 +1,23 @@
+{
+  "name": "miniport",
+  "description": "Temporary portfolio site",
+  "main": "index.js",
+  "authors": [
+    "Will Rice"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.0",
+    "susy": "^2.2.12",
+    "breakpoint-sass": "^2.7.0"
+  }
+}
