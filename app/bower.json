@@ -1,6 +1,6 @@
 {
-  "name": "miniport",
-  "description": "Temporary portfolio site",
+  "name": "ProjectTemplate",
+  "description": "Project Template",
   "main": "index.js",
   "authors": [
     "Will Rice"
