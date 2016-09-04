@@ -1,25 +1,265 @@
+//Import Sass Libraries
+@import "app/bower_components/normalize-scss/sass/_normalize.scss";
 @import "app/bower_components/susy/sass/susy";
 @import "app/bower_components/breakpoint-sass/stylesheets/_breakpoint.scss";
+@import "app/bower_components/bourbon/app/assets/stylesheets/_bourbon.scss";
+@import "app/bower_components/slick-carousel/slick/slick.scss";
 
+//Font Import
+@include font-face("baureg", "../fonts/baureg", normal, normal);
 
 //Layout Variables
-$susy: (
-  columns: 12,  // The number of columns in your grid
-  gutters: 1/2, // The size of a gutter in relation to a single column
-  container: 600px,
-);
+$susy: ( columns: 12, // The number of columns in your grid
+gutters: 1/2, // The size of a gutter in relation to a single column
+container: 1300px, );
+$tablet: 768px;
+$mobile: 420px;
 
-//This is a test
+//General Variables
+$dark-color: #19191F;
+$mid-color: #9B9B9B;;
+$light-color: white;
 
+$primary-font: 'baureg', sans-serif;
+$text-font: 'baureg', sans-serif;
+
+$outer-margin: 40px;
+$description-margin: 240px;
+
+//General Type Tweaks
 body {
-	@include container;
-
-	background-color: blue;
-	color: white;
-	font-size: 40x;
+	-webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: $primary-font;
+    font-size: 16px; 
 }
 
-p, img {
-	@include span(12 of 12);
+h1,h2,h3 {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+}
+
+//Body and Frame
+body {
+	margin: 0;
+
+    .frame {
+        @include container;
+    }
+}
+
+//Nav
+nav {
+    color: $mid-color;
+    margin-top: 40px;
+    margin-bottom: 120px;
+    display: inline-block;
+
+    a {
+        text-decoration: none;
+        color: inherit;
+        &:hover {
+            color: $mid-color;
+        }
+    }
+    ul {
+        width: 100%;
+        list-style-type: none;
+        display: inline-block;
+        font-size: 16px;
+
+        li {
+        	position: absolute;
+        }
+
+        li.name {
+            left: $outer-margin;
+            
+            h1 {
+                margin: 0;
+            }
+        }
+        li.description {
+        	left: $description-margin;
+        }
+        li.profile-link {
+            right: $outer-margin;
+        }
+    }
+}
+
+//Project List
+.project-list {
+    @include span(12 of 12);
+
+    //Transparent next/prev button overlay
+    .project-button {
+        position: absolute;
+        z-index: 1;
+        width: 50%;
+        height: 100%;
+        cursor: pointer;
+        text-indent: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    .project-prev {
+        top: 0;
+        left: 0;
+    }
+    .project-next {
+        top: 0;
+        right: 0;
+    }
+
+    //Project content
+    .project {
+    	width: 100%;
+        background-color: red;
+        position: relative;
+        margin-bottom: -1px;
+
+        .project-info {
+        	position: absolute;
+        	width: 100%;
+        	z-index: 5;
+        	top: 20px;
+        	color: $light-color;
+
+        	h2.project-title {
+        		position: absolute;
+        		left: $outer-margin;
+ 		
+        	}
 	
+        	p.project-skills {
+        		position: absolute;
+        		left: $description-margin;
+        		
+        	}
+	
+        	svg {
+        		position: absolute;
+        		margin-top: 8px;
+        		right: $outer-margin;
+        		cursor: pointer;
+        		transition: transform 450ms cubic-bezier(0.8, -0.8, 0.2, 2.0);    		
+
+        		&:hover {
+        	
+        		}
+        	}        		
+        }
+
+        .project-description-frame {
+        	width: 100%;
+        	height: 100%;
+        	background-color: rgba(0, 0, 0, 0.85);
+        	position: absolute;
+        	z-index: 4;
+        	pointer-events: none;
+        	color: $light-color;
+        	font-size: 22px;
+        	line-height: 34px;
+        	box-sizing: border-box;
+        	padding: 160px $outer-margin 0 $outer-margin;
+        	opacity: 0;
+        	transition: opacity 500ms ease-in-out 250ms;
+        	@include display(flex);
+  			@include align-items(stretch);
+  			@include justify-content(center);
+
+        	.project-description {
+        		max-width: 66vw;
+        	}
+
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+.project-info-button-active {
+	transition: transform 750ms cubic-bezier(0.8, -0.8, 0.2, 2.0) !important;
+	@include transform (rotate(135deg));
+}
+
+.project-active {
+	opacity: 1 !important;
+	pointer-events: auto !important;
+}
+
+
+
+
+
+/* Navigation Dots: Ripped from slick.js css and tweaked*/
+
+.slick-dots {
+    position: absolute;
+    bottom: 20px;
+    display: block;
+    padding: 0;
+    right: 50%;
+    transform: translateX(50%);
+    list-style: none;
+    text-align: center;
+    z-index: 3;
+}
+
+.slick-dots li {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.slick-dots li button {
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    cursor: pointer;
+    color: transparent;
+    border: 0;
+    outline: none;
+    background: transparent;
+}
+
+.slick-dots li button:hover,
+.slick-dots li button:focus {
+    outline: none;
+}
+
+.slick-dots li button:hover:before,
+.slick-dots li button:focus:before {
+    opacity: 1;
+}
+
+.slick-dots li button:before {
+    font-size: 36px;
+    line-height: 38px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    content: '•';
+    text-align: center;
+    opacity: .25;
+    color: black;
+}
+
+.slick-dots li.slick-active button:before {
+    opacity: .75;
+    color: black;
 }

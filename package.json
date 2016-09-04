@@ -1,7 +1,7 @@
 {
-  "name": "project-template",
+  "name": "Portfolio",
   "version": "1.0.0",
-  "description": "Temporary portfolio site",
+  "description": "Portfolio site",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

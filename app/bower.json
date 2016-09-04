@@ -1,6 +1,6 @@
 {
-  "name": "ProjectTemplate",
-  "description": "Project Template",
+  "name": "Portfolio",
+  "description": "Portfolio",
   "main": "index.js",
   "authors": [
     "Will Rice"
@@ -18,6 +18,10 @@
   "dependencies": {
     "jquery": "^3.1.0",
     "susy": "^2.2.12",
-    "breakpoint-sass": "^2.7.0"
+    "breakpoint-sass": "^2.7.0",
+    "normalize-scss": "normalize.scss#^5.0.3",
+    "bourbon": "^4.2.7",
+    "unslider": "^2.0.3",
+    "slick-carousel": "^1.6.0"
   }
 }
